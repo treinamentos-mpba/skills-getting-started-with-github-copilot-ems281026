@@ -2,30 +2,70 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
   line-height: 1.6;
-  color: #333;
+  color: navy;
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
+  background: repeating-linear-gradient(45deg, #ff00ff 0 12px, #00ffff 12px 24px, #ffff00 24px 36px);
+  border-right: 12px ridge red;
+  border-left: 12px ridge red;
 }
 
 header {
   text-align: center;
   padding: 20px 0;
   margin-bottom: 30px;
-  background-color: #1a237e;
-  color: white;
-  border-radius: 5px;
+  background-color: blue;
+  color: yellow;
+  border: 10px ridge lime;
+  border-radius: 0;
+  box-shadow: 8px 8px 0 magenta;
 }
 
 header h1 {
   margin-bottom: 10px;
+  color: yellow;
+  font-size: 2.5rem;
+  text-shadow: 3px 3px red, 6px 6px lime;
+}
+
+header h2 {
+  color: cyan;
+  background: red;
+  text-decoration: underline wavy yellow;
+}
+
+.welcome-marquee {
+  overflow: hidden;
+  margin-top: 15px;
+  padding: 6px;
+  color: lime;
+  background: black;
+  border: 4px dotted yellow;
+  white-space: nowrap;
+}
+
+.welcome-marquee span {
+  display: inline-block;
+  animation: marquee-scroll 10s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(100%); }
+  to { transform: translateX(-100%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .welcome-marquee span {
+    animation: none;
+    white-space: normal;
+  }
 }
 
 main {
@@ -42,10 +82,11 @@ main {
 }
 
 section {
-  background-color: white;
+  background-color: yellow;
   padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: 8px groove lime;
+  border-radius: 0;
+  box-shadow: 8px 8px magenta;
   width: 100%;
   max-width: 500px;
 }
@@ -53,25 +94,89 @@ section {
 section h3 {
   margin-bottom: 20px;
   padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-  color: #1a237e;
+  border-bottom: 5px double blue;
+  color: red;
+  background: lime;
+  text-decoration: underline wavy magenta;
 }
 
 .activity-card {
   margin-bottom: 15px;
   padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  border: 6px ridge red;
+  border-radius: 0;
+  background-color: #ccff00;
+  box-shadow: 5px 5px blue;
 }
 
 .activity-card h4 {
   margin-bottom: 10px;
-  color: #0066cc;
+  color: blue;
+  text-decoration: underline;
+  text-shadow: 1px 1px yellow;
 }
 
 .activity-card p {
   margin-bottom: 8px;
+}
+
+.participants-section {
+  margin-top: 12px;
+  padding: 10px;
+  color: blue;
+  background: magenta;
+  border: 5px dashed lime;
+  font-family: "Comic Sans MS", cursive;
+  box-shadow: 4px 4px red;
+}
+
+.participants-section h5 {
+  margin-bottom: 6px;
+  padding: 4px;
+  color: red;
+  background: yellow;
+  text-transform: uppercase;
+}
+
+.participant-list {
+  margin-left: 0;
+  padding: 8px;
+  color: red;
+  background: cyan;
+  border: 3px dotted orange;
+  font-weight: bold;
+  list-style: none;
+}
+
+.participant-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 4px 0;
+  padding: 5px;
+  background: yellow;
+  border: 2px groove blue;
+  overflow-wrap: anywhere;
+}
+
+.delete-participant {
+  flex: 0 0 34px;
+  width: 34px;
+  min-height: 32px;
+  padding: 3px;
+  font-size: 17px;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.delete-participant:hover {
+  transform: rotate(-8deg) scale(1.15);
+}
+
+.delete-participant:disabled {
+  opacity: 0.5;
+  cursor: wait;
 }
 
 .form-group {
@@ -88,24 +193,29 @@ section h3 {
 .form-group select {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 4px inset magenta;
+  background: cyan;
   border-radius: 4px;
   font-size: 16px;
 }
 
 button {
-  background-color: #1a237e;
-  color: white;
-  border: none;
+  background-color: red;
+  color: yellow;
+  border: 6px outset lime;
   padding: 10px 15px;
   font-size: 16px;
-  border-radius: 5px;
+  border-radius: 0;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-weight: bold;
+  text-decoration: underline;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 button:hover {
-  background-color: #3949ab;
+  background-color: magenta;
+  color: cyan;
 }
 
 .message {
@@ -115,21 +225,21 @@ button:hover {
 }
 
 .success {
-  background-color: #e8f5e9;
-  color: #2e7d32;
-  border: 1px solid #a5d6a7;
+  background-color: lime;
+  color: blue;
+  border: 4px ridge blue;
 }
 
 .error {
-  background-color: #ffebee;
-  color: #c62828;
-  border: 1px solid #ef9a9a;
+  background-color: red;
+  color: yellow;
+  border: 4px ridge yellow;
 }
 
 .info {
-  background-color: #d1ecf1;
-  color: #0c5460;
-  border: 1px solid #bee5eb;
+  background-color: cyan;
+  color: magenta;
+  border: 4px ridge magenta;
 }
 
 .hidden {
@@ -140,5 +250,8 @@ footer {
   text-align: center;
   margin-top: 30px;
   padding: 20px;
-  color: #666;
+  color: yellow;
+  background: blue;
+  border: 8px ridge lime;
+  text-shadow: 2px 2px red;
 }
